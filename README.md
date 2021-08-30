@@ -14,7 +14,7 @@
 4. 学习solidity语言，可以参考[这个文档](https://solidity-cn.readthedocs.io/zh/develop/installing-solidity.html)（如果仅仅想把这个项目运行起来，那么暂时不需要学）
 5. 在本地搭建nodejs环境
 
-## 给metamask冲测试币
+## 给metamask充测试币
 
 1. 打开这个网站[https://faucet.metamask.io/](https://faucet.metamask.io/)
 2. 将metamask切换到ropsten网络
