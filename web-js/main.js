@@ -11,20 +11,20 @@ web3.setProvider(new Web3.providers.HttpProvider(infura_url));
 
 
 /* *****************调用智能合约的方法**************** */
-var address = "0xF8d809Ad4BD3E54Da9837f2e889422CdE51E00b0";
+var address = "0xF8d809Ad4BD3E54Da9837f2e889422CdE51E00b0"; // 换成你的合约地址
 var coinContract = new web3.eth.Contract(abi, address);
 
 coinContract.methods
-    .balanceOf("0xEcaceF1040C5dC8EE5430b5f252e3AaE7Bbb6EF3")
+    .balanceOf("0xEcaceF1040C5dC8EE5430b5f252e3AaE7Bbb6EF3") // 换成你的钱包地址
     .call(null, function (error, result) {
-        console.log("balanceOf data:" + result / 1000000000000000000 + ", error:" + error);
+        console.log("balanceOf data:[" + result / 1000000000000000000 + "], error:[" + error + "]");
     });
 
 // coinContract.methods
 //     .transfer("0x7c1AaA5d8f2a82e819909C0754f04EaFcD0e9957", 100)
 //     .call(null, function (error, result) {
 //         console.dir(result);
-//         console.log("transfer data:" + result + ", error:" + error);
+//         console.log("transfer data:[" + result + "], error:[" + error + "]");
 //     });
 
 /* ******************* 以下代码还没测试成功，暂时不具备参考价值 ******************* */

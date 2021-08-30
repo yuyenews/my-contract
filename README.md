@@ -28,29 +28,22 @@
 npm install truffle-hdwallet-provider
 ```
 
-### 2. 配置HDWalletProvider
+### 2. 配置 助记词和infura
 ```
-编辑/contract/truffle-config.js
+在contract目录下建一个common目录，在common目录里新建两个文件：
 
-1. 将mnemonic的值改成你的metamask的助记词
-2. 找到network下的ropsten节点，将HDWalletProvider里面的第二个参数改成你的infura节点路径
-```
-
-### 3. 更改web3的infura
-```
-编辑web-js/main.js
-
-找到web3.setProvider(new Web3.providers.HttpProvider("将这里改成你的infura节点路径"));
+1. 一个叫mnemonic.data，把助记词拷贝到这个文件里
+2. 一个叫infua.data，把infua节点路径拷贝到这个文件里
 ```
 
 ### 4. 更改代币的名称
 ```
 编辑contract/migrations/1_inital_migration.js
 
-找到deployer.deploy(YYContract, 要发行的代币数量, '代币全称', '代币简称');进行编辑
+找到deployer.deploy(BTCCContract, 要发行的代币数量, '代币全称', '代币简称');进行编辑
 ```
 
-### 5. 在命令行进入到contracts目录，运行以下命令
+### 5. 在命令行进入到contract目录，运行以下命令
 ```
 truffle migrate --network ropsten
 ```
@@ -76,7 +69,7 @@ Pausing for 2 confirmations...
 > confirmation number: 1 (block: 10922338)
 > confirmation number: 2 (block: 10922339)
 
-Replacing 'YYContract'
+Replacing 'BTCCContract'
 ----------------------
 > transaction hash:    ab61b248b194e65f0a1937441f29c545ca3fea67d6f3
 > Blocks: 3            Seconds: 33
@@ -96,26 +89,21 @@ Replacing 'YYContract'
 #### 1. 最简单的方法
 ```
 1. 找到发布合约时，命令行返回的那堆数据，
-在Replacing 'YYContract'下面那一堆里面找到 contract address，后面就是合约地址
+在Replacing 'BTCCContract'下面那一堆里面找到 contract address，后面就是合约地址
 
 2. 打开你的metamask插件，切换到ropsten网络，
 点击添加代币，将合约地址输入，即可添加进去
 
-3. 完成以上两步，即可看到你创建的合约，已经代币数量，找到另一个metamask钱包，也在里面添加此合约，然后给他发送一点代币，如果能正常的发出与收到，则表示成功了
+3. 完成以上两步，即可看到你创建的合约，以及代币数量，找到另一个metamask钱包，也在里面添加此合约，然后给他发送一点代币，如果能正常的发出与收到，则表示成功了
 ```
 
 ### 2. 用web3.js
 
-进入到web-js目录下，将contract/build/contracts/YYContract.json里面的abi节点全部拷贝到web-js目录下的abi.js文件中（直接替换覆盖）
+进入到web-js目录下，将contract/build/contracts/BTCCContract.json里面的abi节点全部拷贝到web-js目录下的abi.json文件中（直接替换覆盖）
 
 安装web3
 ```
 npm install web3
-```
-编辑main.js
-
-```
-在里面根据注释填写自己的合约地址和钱包地址
 ```
 
 运行main.js

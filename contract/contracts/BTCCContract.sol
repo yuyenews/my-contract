@@ -3,7 +3,7 @@ pragma solidity >=0.4.22 <0.9.0;
 
 import "./interface/IERC20.sol";
 
-contract YYContract is IERC20 {
+contract BTCCContract is IERC20 {
     // 代币名称
     string public override name;
     // 符号
