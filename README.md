@@ -106,8 +106,8 @@ Replacing 'MyContract'
 npm install web3
 ```
 
-运行main.js
+运行demo.js
 ```
-node main.js
+node demo.js
 ```
 如果能看到余额也代表成功了
