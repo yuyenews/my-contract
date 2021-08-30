@@ -40,7 +40,7 @@ npm install truffle-hdwallet-provider
 ```
 编辑contract/migrations/1_inital_migration.js
 
-找到deployer.deploy(BTCCContract, 要发行的代币数量, '代币全称', '代币简称');进行编辑
+找到deployer.deploy(MyContract, 要发行的代币数量, '代币全称', '代币简称');进行编辑
 ```
 
 ### 5. 在命令行进入到contract目录，运行以下命令
@@ -69,7 +69,7 @@ Pausing for 2 confirmations...
 > confirmation number: 1 (block: 10922338)
 > confirmation number: 2 (block: 10922339)
 
-Replacing 'BTCCContract'
+Replacing 'MyContract'
 ----------------------
 > transaction hash:    ab61b248b194e65f0a1937441f29c545ca3fea67d6f3
 > Blocks: 3            Seconds: 33
@@ -89,7 +89,7 @@ Replacing 'BTCCContract'
 #### 1. 最简单的方法
 ```
 1. 找到发布合约时，命令行返回的那堆数据，
-在Replacing 'BTCCContract'下面那一堆里面找到 contract address，后面就是合约地址
+在Replacing 'MyContract'下面那一堆里面找到 contract address，后面就是合约地址
 
 2. 打开你的metamask插件，切换到ropsten网络，
 点击添加代币，将合约地址输入，即可添加进去
@@ -99,7 +99,7 @@ Replacing 'BTCCContract'
 
 ### 2. 用web3.js
 
-进入到web-js目录下，将contract/build/contracts/BTCCContract.json里面的abi节点全部拷贝到web-js目录下的abi.json文件中（直接替换覆盖）
+进入到web-js目录下，将contract/build/contracts/MyContract.json里面的abi节点全部拷贝到web-js目录下的abi.json文件中（直接替换覆盖）
 
 安装web3
 ```
