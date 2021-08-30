@@ -113,24 +113,24 @@ contract MyContract is IERC20 {
         return true;
     }
 
-    // /**
-    //  * 设置允许一个地址（合约）以交易者名义可最多花费的代币数。
-    //  *
-    //  * @param _spender 被授权的地址（合约）
-    //  * @param _value 最大可花费代币数
-    //  * @param _extraData 发送给合约的附加数据
-    //  */
-    // function approveAndCall(
-    //     address _spender,
-    //     uint256 _value,
-    //     bytes memory _extraData
-    // ) public returns (bool success) {
-    //     tokenRecipient spender = tokenRecipient(_spender);
-    //     if (approve(_spender, _value)) {
-    //         spender.receiveApproval(msg.sender, _value, this, _extraData);
-    //         return true;
-    //     }
-    // }
+    /**
+     * 设置允许一个地址（合约）以交易者名义可最多花费的代币数。
+     *
+     * @param _spender 被授权的地址（合约）
+     * @param _value 最大可花费代币数
+     * @param _extraData 发送给合约的附加数据
+     */
+    function approveAndCall(
+        address _spender,
+        uint256 _value,
+        bytes memory _extraData
+    ) public returns (bool success) {
+        tokenRecipient spender = tokenRecipient(_spender);
+        if (approve(_spender, _value)) {
+            spender.receiveApproval(msg.sender, _value, this, _extraData);
+            return true;
+        }
+    }
 
     /**
      * 销毁创建者账户中指定个代币
