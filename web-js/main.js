@@ -6,7 +6,7 @@ var abi = require("./abi.json");
 
 /* ********************创建web3******************** */
 var web3 = new Web3();
-var infura_url = fs.readFileSync("../contract/common/infura.data", "utf-8").toString().trim();
+var infura_url = fs.readFileSync("../common/infura.data", "utf-8").toString().trim();
 web3.setProvider(new Web3.providers.HttpProvider(infura_url));
 
 
@@ -60,7 +60,7 @@ const customCommon = Common.forCustomChain(
 )
 
 // 读取私钥，这里不包含‘0x’两个字符
-var privateKey = fs.readFileSync("../contract/common/privateKey.data", "utf-8").toString().trim();
+var privateKey = fs.readFileSync("../common/privateKey.data", "utf-8").toString().trim();
 var privKey = new Buffer.from(privateKey, 'hex');
 var tx = new Tx.Transaction(rawTransaction, customCommon);
 

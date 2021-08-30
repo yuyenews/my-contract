@@ -30,10 +30,10 @@ npm install truffle-hdwallet-provider
 
 ### 2. 配置 助记词和infura
 ```
-在contract目录下建一个common目录，在common目录里新建两个文件：
+在根目录下建一个common目录，在common目录里新建两个文件：
 
 1. 一个叫mnemonic.data，把助记词拷贝到这个文件里
-2. 一个叫infua.data，把infua节点路径拷贝到这个文件里
+2. 一个叫infura.data，把infua节点路径拷贝到这个文件里
 ```
 
 ### 4. 更改代币的名称

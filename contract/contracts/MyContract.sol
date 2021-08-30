@@ -5,18 +5,21 @@ import "./interface/IERC20.sol";
 
 contract MyContract is IERC20 {
     // 代币名称
-    string public override name;
+    string public name;
     // 符号
-    string public override symbol;
+    string public symbol;
     // 小数点位数
-    uint8 public override decimals = 18; // 18 is the most common number of decimal places
+    uint8 public decimals = 18; // 18 is the most common number of decimal places
     //发币总量
-    uint256 public override totalSupply;
+    uint256 public totalSupply;
 
     // 用mapping保存每个地址对应的余额
-    mapping(address => uint256) public override balanceOf;
+    mapping(address => uint256) public balanceOf;
     // 存储对账号的控制
-    mapping(address => mapping(address => uint256)) public override allowance;
+    mapping(address => mapping(address => uint256)) public allowance;
+
+    // Brun事件，销毁创建者账户中指定数量代币 时触发
+    event Burn(address _from, uint256 _value);
 
     /**
      * 初始化构造
@@ -68,7 +71,6 @@ contract MyContract is IERC20 {
      */
     function transfer(address _to, uint256 _value)
         public
-        override
         returns (bool success)
     {
         _transfer(msg.sender, _to, _value);
@@ -85,7 +87,7 @@ contract MyContract is IERC20 {
         address _from,
         address _to,
         uint256 _value
-    ) public override returns (bool success) {
+    ) public returns (bool success) {
         require(
             _value <= allowance[_from][msg.sender],
             "allowance value error"
@@ -105,7 +107,6 @@ contract MyContract is IERC20 {
      */
     function approve(address _spender, uint256 _value)
         public
-        override
         returns (bool success)
     {
         allowance[msg.sender][_spender] = _value;
